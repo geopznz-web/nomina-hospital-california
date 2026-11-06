@@ -1,0 +1,431 @@
+/* ==========================================================================
+   ARCHIVO: style.css
+   PROYECTO: Sistema Web de Nómina Hospitalaria (150 Empleados - California)
+   DESCRIPCIÓN: Diseño profesional, clínico y 100% adaptable a computadoras,
+                tabletas y dispositivos móviles.
+   ========================================================================== */
+
+:root {
+  --azul-hospital: #0f172a;
+  --azul-medico: #0284c7;
+  --azul-claro: #e0f2fe;
+  --verde-exito: #16a34a;
+  --ambar-pendiente: #d97706;
+  --morado-proceso: #7c3aed;
+  --rojo-peligro: #dc2626;
+  --gris-fondo: #f1f5f9;
+  --blanco: #ffffff;
+  --texto-oscuro: #1e293b;
+  --texto-gris: #64748b;
+  --borde: #cbd5e1;
+  --sombra: 0 4px 20px rgba(15, 23, 42, 0.08);
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: 'Segoe UI', system-ui, -apple-system, sans-serif;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  background-color: var(--gris-fondo);
+  color: var(--texto-oscuro);
+  line-height: 1.5;
+}
+
+/* Encabezado Superior */
+.header-hospital {
+  background: linear-gradient(135deg, #0f172a 0%, #0369a1 100%);
+  color: var(--blanco);
+  padding: 20px 28px;
+  border-bottom: 4px solid #38bdf8;
+  box-shadow: var(--sombra);
+  position: sticky;
+  top: 0;
+  z-index: 100;
+}
+
+.header-contenedor {
+  max-width: 1380px;
+  margin: 0 auto;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  align-items: center;
+  gap: 16px;
+}
+
+.marca-hospital h1 {
+  font-size: 1.45rem;
+  font-weight: 800;
+}
+
+.marca-hospital p {
+  font-size: 0.86rem;
+  color: #bae6fd;
+}
+
+.nav-links {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 12px;
+}
+
+.nav-links a {
+  color: var(--blanco);
+  text-decoration: none;
+  font-size: 0.88rem;
+  font-weight: 600;
+  padding: 7px 14px;
+  border-radius: 50px;
+  background: rgba(255, 255, 255, 0.12);
+  transition: all 0.2s;
+}
+
+.nav-links a:hover {
+  background: #38bdf8;
+  color: var(--azul-hospital);
+}
+
+/* Contenedor Principal */
+.contenedor-principal {
+  max-width: 1380px;
+  margin: 24px auto;
+  padding: 0 20px 40px;
+}
+
+/* Tarjetas KPI */
+.grid-kpis {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(230px, 1fr));
+  gap: 16px;
+  margin-bottom: 24px;
+}
+
+.kpi-card {
+  background: var(--blanco);
+  padding: 18px 20px;
+  border-radius: 12px;
+  box-shadow: var(--sombra);
+  border-left: 5px solid var(--azul-medico);
+}
+
+.kpi-card.verde { border-left-color: var(--verde-exito); }
+.kpi-card.ambar { border-left-color: var(--ambar-pendiente); }
+.kpi-card.morado { border-left-color: var(--morado-proceso); }
+
+.kpi-card small {
+  color: var(--texto-gris);
+  font-size: 0.76rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+}
+
+.kpi-card h2 {
+  font-size: 1.65rem;
+  margin-top: 4px;
+  color: var(--azul-hospital);
+}
+
+/* Layout Principal CRUD */
+.layout-crud {
+  display: grid;
+  grid-template-columns: 380px 1fr;
+  gap: 24px;
+  align-items: start;
+  margin-bottom: 28px;
+}
+
+.panel-card {
+  background: var(--blanco);
+  border-radius: 14px;
+  box-shadow: var(--sombra);
+  padding: 22px;
+  border: 1px solid #e2e8f0;
+}
+
+.panel-titulo {
+  font-size: 1.1rem;
+  font-weight: 800;
+  color: var(--azul-hospital);
+  margin-bottom: 14px;
+  padding-bottom: 10px;
+  border-bottom: 2px solid var(--gris-fondo);
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  align-items: center;
+  gap: 10px;
+}
+
+.acciones-tabla {
+  display: flex;
+  gap: 8px;
+}
+
+/* Formulario */
+.campo-form {
+  margin-bottom: 12px;
+}
+
+.campo-form label {
+  display: block;
+  font-size: 0.82rem;
+  font-weight: 700;
+  margin-bottom: 4px;
+}
+
+.campo-form input,
+.campo-form select {
+  width: 100%;
+  padding: 9px 12px;
+  border: 1.5px solid var(--borde);
+  border-radius: 8px;
+  font-size: 0.9rem;
+  background-color: #f8fafc;
+}
+
+.campo-form input:focus,
+.campo-form select:focus {
+  border-color: var(--azul-medico);
+  background-color: var(--blanco);
+  outline: none;
+}
+
+.fila-doble {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 10px;
+}
+
+.caja-calculo-vivo {
+  background: var(--azul-claro);
+  border: 1px solid #7dd3fc;
+  border-radius: 10px;
+  padding: 12px;
+  margin: 14px 0;
+  font-size: 0.85rem;
+}
+
+.caja-calculo-vivo div {
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 4px;
+}
+
+.caja-calculo-vivo .neto-destacado {
+  font-weight: 800;
+  font-size: 1rem;
+  color: #0369a1;
+  border-top: 1px solid #7dd3fc;
+  padding-top: 5px;
+  margin-top: 5px;
+}
+
+/* Botones */
+.botones-crud {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 10px;
+}
+
+.btn {
+  padding: 10px 14px;
+  border: none;
+  border-radius: 8px;
+  font-weight: 700;
+  font-size: 0.88rem;
+  cursor: pointer;
+  transition: all 0.2s;
+}
+
+.btn-sm {
+  padding: 6px 11px;
+  font-size: 0.78rem;
+}
+
+.btn-registrar {
+  background-color: var(--verde-exito);
+  color: var(--blanco);
+}
+
+.btn-registrar:hover { background-color: #15803d; }
+
+.btn-actualizar {
+  background-color: var(--azul-medico);
+  color: var(--blanco);
+}
+
+.btn-actualizar:hover { background-color: #0369a1; }
+
+.btn-secundario {
+  background-color: #e2e8f0;
+  color: var(--texto-oscuro);
+}
+
+.btn-secundario:hover { background-color: #cbd5e1; }
+
+/* Barra de Filtros */
+.barra-filtros {
+  display: grid;
+  grid-template-columns: 1.5fr 1fr 0.8fr;
+  gap: 12px;
+  margin-bottom: 16px;
+}
+
+.barra-filtros input,
+.barra-filtros select {
+  padding: 10px 14px;
+  border: 1.5px solid var(--borde);
+  border-radius: 8px;
+  font-size: 0.9rem;
+}
+
+/* Tabla */
+.contenedor-tabla {
+  overflow-x: auto;
+  max-height: 620px;
+  overflow-y: auto;
+  border: 1px solid #e2e8f0;
+  border-radius: 10px;
+}
+
+table {
+  width: 100%;
+  border-collapse: collapse;
+  font-size: 0.85rem;
+}
+
+thead {
+  background-color: var(--azul-hospital);
+  color: var(--blanco);
+  position: sticky;
+  top: 0;
+  z-index: 5;
+}
+
+th, td {
+  padding: 10px 12px;
+  text-align: left;
+  border-bottom: 1px solid #e2e8f0;
+  white-space: nowrap;
+}
+
+tbody tr:hover {
+  background-color: #f0f9ff;
+}
+
+.badge-estado {
+  padding: 4px 10px;
+  border-radius: 50px;
+  font-size: 0.74rem;
+  font-weight: 700;
+  display: inline-block;
+}
+
+.badge-Pagado { background-color: #dcfce7; color: #166534; }
+.badge-Pendiente { background-color: #fef3c7; color: #92400e; }
+.badge-Proceso { background-color: #ede9fe; color: #5b21b6; }
+
+.btn-accion {
+  background-color: var(--azul-claro);
+  color: #0369a1;
+  border: 1px solid #7dd3fc;
+  padding: 4px 8px;
+  border-radius: 6px;
+  font-size: 0.75rem;
+  font-weight: 700;
+  cursor: pointer;
+  margin-right: 4px;
+}
+
+.btn-accion:hover {
+  background-color: var(--azul-medico);
+  color: var(--blanco);
+}
+
+.btn-accion.eliminar {
+  background-color: #fee2e2;
+  color: var(--rojo-peligro);
+  border-color: #fca5a5;
+}
+
+.btn-accion.eliminar:hover {
+  background-color: var(--rojo-peligro);
+  color: var(--blanco);
+}
+
+/* Sección de Departamentos */
+.grid-departamentos {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(240px, 1fr));
+  gap: 14px;
+}
+
+.depto-card {
+  background: #f8fafc;
+  border: 1px solid #e2e8f0;
+  border-top: 4px solid var(--azul-medico);
+  border-radius: 10px;
+  padding: 14px;
+}
+
+.depto-card h4 {
+  font-size: 0.95rem;
+  color: var(--azul-hospital);
+  margin-bottom: 6px;
+}
+
+.depto-card p {
+  font-size: 0.83rem;
+  color: var(--texto-gris);
+}
+
+/* Footer */
+.footer-hospital {
+  background-color: var(--azul-hospital);
+  color: #cbd5e1;
+  text-align: center;
+  padding: 20px;
+  font-size: 0.86rem;
+}
+
+/* Toast */
+.toast-msg {
+  position: fixed;
+  bottom: 24px;
+  right: 24px;
+  background: var(--azul-hospital);
+  color: var(--blanco);
+  border-left: 5px solid #38bdf8;
+  padding: 14px 20px;
+  border-radius: 10px;
+  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.25);
+  font-size: 0.9rem;
+  z-index: 2000;
+  opacity: 0;
+  pointer-events: none;
+  transform: translateY(15px);
+  transition: all 0.3s;
+}
+
+.toast-msg.activo {
+  opacity: 1;
+  pointer-events: auto;
+  transform: translateY(0);
+}
+
+@media (max-width: 1024px) {
+  .layout-crud {
+    grid-template-columns: 1fr;
+  }
+  .barra-filtros {
+    grid-template-columns: 1fr;
+  }
+}

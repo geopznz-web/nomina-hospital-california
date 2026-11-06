@@ -1,0 +1,246 @@
+<!DOCTYPE html>
+<!-- ==========================================================================
+     ARCHIVO: index.html
+     PROYECTO: Sistema Web de Nómina Hospitalaria (150 Empleados - California)
+     DESPLIEGUE: GitHub Pages (index.html + style.css + script.js)
+     ========================================================================== -->
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Sistema de Nómina | Pacific General Hospital California (150 Empleados)</title>
+  <!-- Referencia obligatoria a la hoja de estilos externa -->
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+  <!-- Encabezado con navegación -->
+  <header class="header-hospital" id="inicio">
+    <div class="header-contenedor">
+      <div class="marca-hospital">
+        <h1>🏥 Pacific General Hospital — California Payroll System</h1>
+        <p>Plataforma Web de Nómina Quincenal (150 Empleados Activos) • Desplegada en GitHub Pages</p>
+      </div>
+      <nav class="nav-links">
+        <a href="#resumen">Resumen KPIs</a>
+        <a href="#gestion">Registrar / Actualizar</a>
+        <a href="#directorio">Directorio (150)</a>
+        <a href="#departamentos">Por Departamento</a>
+      </nav>
+    </div>
+  </header>
+
+  <main class="contenedor-principal">
+
+    <!-- SECCIÓN 1: Indicadores Financieros de Nómina (KPIs) -->
+    <section id="resumen" class="seccion-bloque">
+      <div class="grid-kpis">
+        <div class="kpi-card">
+          <small>Total Empleados en Nómina</small>
+          <h2 id="kpi-total-empleados">150</h2>
+        </div>
+        <div class="kpi-card verde">
+          <small>Nómina Bruta Quincenal (USD)</small>
+          <h2 id="kpi-nomina-bruta">$0.00</h2>
+        </div>
+        <div class="kpi-card ambar">
+          <small>Retención Impuestos CA (22%)</small>
+          <h2 id="kpi-impuestos">$0.00</h2>
+        </div>
+        <div class="kpi-card morado">
+          <small>Nómina Neta Dispersada (USD)</small>
+          <h2 id="kpi-nomina-neta">$0.00</h2>
+        </div>
+      </div>
+    </section>
+
+    <!-- SECCIÓN 2: Gestión de Nómina (Formulario + Tabla de 150 Empleados) -->
+    <section id="gestion" class="layout-crud">
+
+      <!-- Panel Izquierdo: Formulario para Registrar o Actualizar Empleado -->
+      <aside class="panel-card">
+        <div class="panel-titulo">
+          <span>📝 Registro y Actualización</span>
+          <button type="button" class="btn btn-secundario btn-sm" id="btn-limpiar">Limpiar</button>
+        </div>
+
+        <form id="form-nomina">
+          <div class="fila-doble">
+            <div class="campo-form">
+              <label for="emp-id">ID Empleado</label>
+              <input type="text" id="emp-id" placeholder="Ej. EMP-151">
+            </div>
+            <div class="campo-form">
+              <label for="emp-estado">Estado de Pago</label>
+              <select id="emp-estado">
+                <option value="Pagado">Pagado</option>
+                <option value="Pendiente">Pendiente</option>
+                <option value="En Proceso">En Proceso</option>
+              </select>
+            </div>
+          </div>
+
+          <div class="campo-form">
+            <label for="emp-nombre">Nombre Completo del Empleado *</label>
+            <input type="text" id="emp-nombre" placeholder="Ej. Dra. Sofía Ramírez" required>
+          </div>
+
+          <div class="campo-form">
+            <label for="emp-departamento">Departamento del Hospital *</label>
+            <select id="emp-departamento">
+              <option value="Emergency Room (ER)">Emergency Room (ER)</option>
+              <option value="Intensive Care Unit (ICU)">Intensive Care Unit (ICU)</option>
+              <option value="Surgery & OR">Surgery & OR</option>
+              <option value="Pediatrics">Pediatrics</option>
+              <option value="Cardiology">Cardiology</option>
+              <option value="Radiology & Imaging">Radiology & Imaging</option>
+              <option value="Clinical Laboratory">Clinical Laboratory</option>
+              <option value="Hospital Pharmacy">Hospital Pharmacy</option>
+              <option value="Administration & HR">Administration & HR</option>
+              <option value="Health IT & Systems">Health IT & Systems</option>
+            </select>
+          </div>
+
+          <div class="campo-form">
+            <label for="emp-puesto">Puesto / Cargo Clínico *</label>
+            <input type="text" id="emp-puesto" placeholder="Ej. Registered Nurse (RN)" required>
+          </div>
+
+          <div class="campo-form">
+            <label for="emp-turno">Turno Asignado</label>
+            <select id="emp-turno">
+              <option value="Matutino (07:00 - 15:00)">Matutino (07:00 - 15:00)</option>
+              <option value="Vespertino (15:00 - 23:00)">Vespertino (15:00 - 23:00)</option>
+              <option value="Nocturno (23:00 - 07:00)">Nocturno (23:00 - 07:00)</option>
+            </select>
+          </div>
+
+          <div class="fila-doble">
+            <div class="campo-form">
+              <label for="emp-horas">Horas Quincena</label>
+              <input type="number" id="emp-horas" value="80" min="1" max="140">
+            </div>
+            <div class="campo-form">
+              <label for="emp-tarifa">Tarifa / Hora (USD)</label>
+              <input type="number" id="emp-tarifa" value="58.50" step="0.01" min="15">
+            </div>
+          </div>
+
+          <div class="fila-doble">
+            <div class="campo-form">
+              <label for="emp-bono">Bono Guardia (USD)</label>
+              <input type="number" id="emp-bono" value="150" step="10" min="0">
+            </div>
+            <div class="campo-form">
+              <label for="emp-correo">Correo Institucional</label>
+              <input type="email" id="emp-correo" placeholder="nombre@pacificgeneralca.org">
+            </div>
+          </div>
+
+          <!-- Simulador de Nómina en Tiempo Real -->
+          <div class="caja-calculo-vivo">
+            <div>
+              <span>Salario Bruto Estimado:</span>
+              <strong id="prev-bruto">$4,830.00</strong>
+            </div>
+            <div>
+              <span>Impuestos California (22%):</span>
+              <strong id="prev-impuestos">-$1,062.60</strong>
+            </div>
+            <div class="neto-destacado">
+              <span>Salario Neto Quincenal:</span>
+              <span id="prev-neto">$3,767.40</span>
+            </div>
+          </div>
+
+          <div class="botones-crud">
+            <button type="button" class="btn btn-registrar" id="btn-registrar">
+              ➕ Registrar Empleado
+            </button>
+            <button type="button" class="btn btn-actualizar" id="btn-actualizar">
+              💾 Actualizar ID
+            </button>
+          </div>
+        </form>
+      </aside>
+
+      <!-- Panel Derecho: Directorio y Buscador de los 150 Empleados -->
+      <div class="panel-card" id="directorio">
+        <div class="panel-titulo">
+          <span>📊 Directorio de Nómina (<span id="contador-filtrados">150</span> empleados mostrados)</span>
+          <div class="acciones-tabla">
+            <button type="button" class="btn btn-secundario btn-sm" id="btn-exportar-csv">⬇️ Exportar CSV</button>
+            <button type="button" class="btn btn-secundario btn-sm" id="btn-restaurar">🔄 Restaurar 150</button>
+          </div>
+        </div>
+
+        <div class="barra-filtros">
+          <input type="search" id="filtro-busqueda" placeholder="🔍 Buscar por ID (EMP-001), nombre, puesto o correo...">
+          <select id="filtro-departamento">
+            <option value="TODOS">Todos los Departamentos (10)</option>
+            <option value="Emergency Room (ER)">Emergency Room (ER)</option>
+            <option value="Intensive Care Unit (ICU)">Intensive Care Unit (ICU)</option>
+            <option value="Surgery & OR">Surgery & OR</option>
+            <option value="Pediatrics">Pediatrics</option>
+            <option value="Cardiology">Cardiology</option>
+            <option value="Radiology & Imaging">Radiology & Imaging</option>
+            <option value="Clinical Laboratory">Clinical Laboratory</option>
+            <option value="Hospital Pharmacy">Hospital Pharmacy</option>
+            <option value="Administration & HR">Administration & HR</option>
+            <option value="Health IT & Systems">Health IT & Systems</option>
+          </select>
+          <select id="filtro-estado">
+            <option value="TODOS">Todos los Estados</option>
+            <option value="Pagado">Pagado</option>
+            <option value="Pendiente">Pendiente</option>
+            <option value="En Proceso">En Proceso</option>
+          </select>
+        </div>
+
+        <div class="contenedor-tabla">
+          <table>
+            <thead>
+              <tr>
+                <th>Acciones</th>
+                <th>ID</th>
+                <th>Nombre Completo</th>
+                <th>Departamento</th>
+                <th>Puesto</th>
+                <th>Turno</th>
+                <th>Hrs</th>
+                <th>Tarifa/Hr</th>
+                <th>Bono</th>
+                <th>Bruto (USD)</th>
+                <th>Imp. CA (22%)</th>
+                <th>Neto (USD)</th>
+                <th>Estado</th>
+              </tr>
+            </thead>
+            <tbody id="cuerpo-tabla-nomina"></tbody>
+          </table>
+        </div>
+      </div>
+    </section>
+
+    <!-- SECCIÓN 3: Resumen de Nómina por Departamento del Hospital -->
+    <section id="departamentos" class="panel-card seccion-departamentos">
+      <div class="panel-titulo">
+        <span>🏥 Desglose Presupuestal por Departamento Hospitalario</span>
+      </div>
+      <div class="grid-departamentos" id="contenedor-departamentos"></div>
+    </section>
+
+  </main>
+
+  <!-- Pie de página -->
+  <footer class="footer-hospital">
+    <p>&copy; 2026 Pacific General Hospital California — Sistema de Gestión de Nómina (150 Empleados). Desarrollado con HTML5, CSS3 y JavaScript para GitHub Pages.</p>
+  </footer>
+
+  <!-- Notificación flotante Toast -->
+  <div class="toast-msg" id="toast-msg"></div>
+
+  <!-- Referencia obligatoria al archivo JavaScript externo -->
+  <script src="script.js"></script>
+</body>
+</html>
